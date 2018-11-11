@@ -1,0 +1,387 @@
+@import "bounce";
+@import "~bootstrap/scss/bootstrap";
+
+$bg-img: url('../img/court.png');
+$line-img: url('../img/line.png');
+$hor-line-img: url('../img/line-hor.png');
+
+$white: #FFF;
+$mint: #73bf8f;
+$gray: #666;
+$red: #fd4545;
+$blue: #5B86E5;
+$light-blue: #36D1DC;
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  height: 100vh;
+  background: #4776E6;
+  background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);
+  background: linear-gradient(to right, #8E54E9, #4776E6);
+}
+
+p {
+  color: $white;
+  font-weight: 200;
+}
+
+h2{
+  color: $white;
+  margin: 0;
+  float: left;
+}
+
+h3 {
+  color: $gray;
+  padding: 10px 0 5px;
+  font-weight: 300;
+}
+
+hr {
+  background-color: #CCC !important;
+}
+
+.light {
+  font-weight: 200 !important;
+}
+
+#notValid {
+  display: none;
+}
+
+.content {
+  margin-top: 40px;
+}
+
+.intro {
+  font-size: 12px;
+  color: $white;
+  font-weight: 200;
+}
+
+.redText {
+  color: $red;
+  font-weight: 500;
+}
+
+.blueText {
+  color: $blue;
+  font-weight: 500;
+}
+
+.tag-box {
+  width: 100%;
+  padding:10px;
+  height: 38px;
+  margin-bottom: 20px;
+}
+
+.edit-box {
+  margin-top: 20px;
+  height:120px;
+}
+
+#tag-component {
+  margin-top: 15vh;
+  padding:20px 20px 0 20px;
+  background-image: linear-gradient( 181deg,  rgba(70,69,69,1) -1.7%, rgba(46,46,46,1) 85.6% );
+  position: relative;
+  overflow: visible;
+}
+
+.container {
+  max-width: 640px;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tagCourt {
+  width: 100%;
+  position: relative;
+  padding: 40px;
+}
+
+.court {
+  background-image: $bg-img;
+  background-size:cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 86%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.btn-grad {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 10px !important;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  background-image: linear-gradient( 35deg, $blue 0%, $light-blue 51%, $blue 100%)
+}
+
+.update {
+  padding: 0;
+  width: auto;
+  background-image: none;
+  background-color: $mint;
+}
+
+.update:disabled {
+  background-color: #EEE;
+}
+
+.cancel {
+  background-image: none;
+  width: auto;
+  float: left;
+}
+
+.btn-grad:hover { background-position: right center; }
+
+.greenBtn {
+  background: $mint !important;
+}
+
+.redBtn {
+  background: $red !important;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.blueList {
+  right: 10px;
+  position: absolute;
+}
+
+.mainList {
+  text-align: center;
+}
+
+.listItem {
+  display: inline-block;
+  padding: 7px 12px;
+  margin: 0 5px 10px 0;
+  color: $white;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+   padding: 0;
+}
+
+.gameListItem {
+  display: list-item;
+  list-style: none;
+  padding: 7px 12px;
+  margin: 0 0 10px 0;
+  color: $white;
+  font-size: 18px;
+  text-decoration: none;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.game {
+  margin-left: 0px;
+}
+
+.right {
+  float: right;
+}
+
+.noPadding {
+  padding: 0;
+  background-image: $line-img;
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.redTeam {
+  background-color: $red;
+}
+
+.blueTeam {
+  background-color: $blue;
+}
+
+.closeBtn {
+  position: relative;
+  top:-3px;
+  right: -3px;
+  padding: 0px 7px 4px;
+  font-size: 14px;
+  background-color: $white;
+  border-radius: 30px;
+  border: none;
+  opacity: 0.7;
+  color:#8E54E9;
+  text-decoration: none;
+}
+
+.clearBtn {
+  background: $gray;
+  color: $white;
+  font-size: 14px;
+  font-weight: 200;
+  margin: 3px 10px 0 0;
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.clearBtn:hover {
+  text-decoration: none;
+  color: $white;
+}
+
+.closeBtn:hover {
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.logo {
+  position:absolute;
+  top:-60px;
+  left: 50%;
+}
+
+.logo img {
+  width: 450px;
+  position:relative;
+  top:0;
+  left: -53%;
+}
+
+.buttons {
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#logo2 {
+  position:absolute;
+  top:0;
+  -webkit-animation-name: fade;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+@media(max-width:767px) {
+
+  #tag-component {
+    margin-top: 80px;
+  }
+
+  .content {
+    margin-top: 10%;
+  }
+
+  .tagCourt {
+    padding: 20px;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .logo {
+    position:absolute;
+    top:-60px;
+    left: 0;
+  }
+
+  .logo img {
+    width: 100%;
+    left: 0;
+  }
+
+  .gameListItem {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 0 5px 10px 0;
+    color: $white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .list {
+    text-align: center;
+  }
+
+  .game {
+    margin-left: -10px;
+  }
+
+  .noPadding {
+    background-image: $hor-line-img;
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  .blueList {
+    right: 0px;
+    position: relative;
+  }
+}
