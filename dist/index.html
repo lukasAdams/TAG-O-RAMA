@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TAG-O-RAMA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="container">
+    <div id="tag-component" class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-10 offset-xs-1 ">
+      <div class="logo">
+          <img id="logo1" src="" />
+          <img id="logo2" src="" />
+      </div>
+        <div class="content">
+          <div class="buttons">
+            <a href="#" class="clearBtn greenBtn playBtn" data-bind='click: playGame, visible: tagArray().length > 0, text: buttonText'>Play Ball</a>
+            <a href="#" class="clearBtn" data-bind='visible: tagArray().length > 0' data-toggle="modal" data-target="#editModal">Edit tags</a>
+            <a href="#" class="clearBtn" data-bind='click: clearTags, visible: tagArray().length > 0'>Clear tags</a>
+          </div>
+          <div class="clear"></div>
+        <hr>
+        <div class="intro">Welcome to <span class="redText">Tag</span>-o-<span class="blueText">rama</span>, the latest complex number tagging game system out to change the world one tag at a time!
+          We are the only place to come if you want to tag some numbers separated by commas, semi-colons and line-breaks!
+          But don't try to to tag using letters because they will get knocked out!<br></br>
+          Numbers with a negative value are on the <span class="blueText">blue team</span>, numbers with a positive value are on the <span class="redText">red team</span>.<br><br>
+          So start creating your teams today before we run out of tags! With <span class="redText">Tag</span>-o-<span class="blueText">rama</span>, anything is possible.</div>
+        <div class="wrapper">
+          <div class="court"></div>
+          <form name="form" data-bind="submit:addTag">
+            <div class="col-md-12 tagCourt">
+              <div class="form-group">
+                <textarea placeholder="Enter you tags" class="form-control tag-box" name="tagsBox" data-bind='value:tagsToAdd, valueUpdate: "afterkeydown"' required></textarea>
+                <button class="btn-grad">Add tags</button>
+                <ul data-bind="foreach: tagArray, visible: showPlayers" class="list mainList">
+                  <li class="listItem" data-bind="css:($data.team == 'red' ? 'redTeam' : 'blueTeam')">
+                      <span data-bind="text: $data.tag"> </span>
+                      <a href="#" class="closeBtn" data-bind='click: $parent.removeTag'> x </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="row game" data-bind="visible: showGame">
+                <div class="col-md-2 col-sm-2 team">
+                  <ul data-bind="foreach: blueTeamArray" class="list blueList">
+                    <li class="gameListItem" data-bind="css:($data.team == 'red' ? 'redTeam' : 'blueTeam')">
+                      <span data-bind="text: $data.tag"> </span>
+                      <a href="#" class="closeBtn" data-bind='click: $parent.removeTag'> x </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-8 col-sm-8 noPadding">
+                  <div id="stage">
+                    <div id="traveler">
+                      <div class="bouncer"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-2 team">
+                  <ul data-bind="foreach: redTeamArray" class="list">
+                    <li class="gameListItem" data-bind="css:($data.team == 'red' ? 'redTeam' : 'blueTeam')">
+                        <span data-bind="text: $data.tag"> </span>
+                        <a href="#" class="closeBtn" data-bind='click: $parent.removeTag'> x </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form name="editForm" id="editForm" data-bind="submit:editTag">
+          <div class="col-md-12">
+            <div class="form-group">
+              <h3>Edit your tags</h3>
+              <textarea id="tagEditor" placeholder="Update tags" class="form-control tag-box edit-box" name="editTagsBox" data-bind='value: tagsToEdit, valueUpdate: "afterkeydown"' required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-grad cancel" data-dismiss="modal">Cancel</button>
+            <button id="submit" class="btn-grad update" data-bind="enable: canSave">Update tags</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="app.bundle.js"></script></body>
+</html>
